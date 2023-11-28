@@ -8,15 +8,23 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# puts "Cleaning up database..."
-# Groups.destroy_all
-# Activities.destroy_all
-# User.destroy_all
+puts "Cleaning up database..."
+User.destroy_all
 
-# puts "Rodando........."
-# Activity.create!(title: "bar do Bolinha", category: "bar", address: "rua não sei")
+puts "Rodando........."
+at1 = Activity.create!(title: "bar do Bolinha", category: "bar", address: "rua não sei")
+user1 = User.create!(email: "master1@master1.com", password: 123123)
+group1 = Group.create!(name: "rolê 1", category: "Bar", user: user1, activity: at1)
 
+at2 = Activity.create!(title: "bar do zé", category: "bar", address: "rua talvez alguma")
+user2 = User.create!(email: "master2@master2.com", password: 123123)
+group2 = Group.create!(name: "rolê 2", category: "Bar", user: user2, activity: at2)
 
-# user2 = User.create!(email: "master1@master1.com", password: 123123)
-# user2.groups.create!(name: "rolê no bar do bolinha", category: "Bar")
-# user2.groups.activities.create(title: "Bar do Bolinha", category: "bar", address: "rua não sei", image: "100")
+at3 = Activity.create!(title: "vintão", category: "restaurante", address: "av paulista")
+user3 = User.create!(email: "master3@master3.com", password: 123123)
+group3 = Group.create!(name: "rolê 3", category: "restaurante", user: user3, activity: at3)
+
+at4 = Activity.create!(title: "MC", category: "Morte", address: "rua rua rua")
+user4 = User.create!(email: "master4@master4.com", password: 123123)
+group4 = Group.create!(name: "rolê 4", category: "Morte", user: user4, activity: at4)
+puts "Pronto"
