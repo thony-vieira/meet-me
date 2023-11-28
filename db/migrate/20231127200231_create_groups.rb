@@ -4,7 +4,7 @@ class CreateGroups < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :category
       t.references :user, null: false, foreign_key: true
-      t.references :activity, null: false, foreign_key: true
+      t.references :activity, null: true, foreign_key: true
 
       t.timestamps
     end

@@ -14,6 +14,13 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @group = Group.new(group_params)
+    @group.user = current_user
+    if @group.save
+      redirect_to group_path(@group)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit; end
