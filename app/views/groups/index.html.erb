@@ -1,4 +1,10 @@
 <h1>Groups#index</h1>
 <p>Find me in app/views/groups/index.html.erb</p>
 
-<%= @groups %>
+<ul>
+  <% @groups.each do |group| %>
+    <%# <li><%= link_to group.name, group_path(group) %></li>
+    <%# <li><%= link_to group.category, group_path(group) %></li>
+    <li><%= link_to "#{group.name} - #{group.category}", group_path(group) %></li>
+  <% end %>
+</ul>
