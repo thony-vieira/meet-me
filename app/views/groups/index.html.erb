@@ -7,4 +7,6 @@
     <%# <li><%= link_to group.category, group_path(group) %></li>
     <li><%= link_to "#{group.name} - #{group.category}", group_path(group) %></li>
   <% end %>
+  <%= link_to "Create Group", new_group_path, class: "btn btn-danger" %>
+
 </ul>

@@ -1,4 +1,10 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
-
-<%= render "form", group: @group %>
+<div class="container mt-3">
+  <div class="register-form">
+    <h1 class="text-center mt-3">Create a Group</h1>
+    <h4 class="text-center mt-3 mb-5">Add your folks and get ready to hang out with them!</h4>
+      <%= render "form", group: @group %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <%= link_to "Back", groups_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
