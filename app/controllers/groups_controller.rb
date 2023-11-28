@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[edit update]
+  before_action :set_group, only: %i[edit update destroy]
 
   def index
     @groups = Group.all
@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to groups_rote
+    redirect_to groups_path, status: :see_other
   end
 
   private
