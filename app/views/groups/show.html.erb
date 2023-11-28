@@ -2,4 +2,6 @@
 <p>Find me in app/views/groups/show.html.erb</p>
 
 <h1><%= @group.name %></h1>
-<h1><%= @group.category %></h1>
+<h1><%= @group.category.name %></h1>
+
+<%= link_to "Delete this Group", group_path(@group), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
