@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @users = User.all
+    @users = User.where.not(id: current_user)
   end
 
   def new
