@@ -1,5 +1,7 @@
 <%= simple_form_for [group] do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
-  <%= f.submit %>
+  <%= f.input :category, collection: Group::CATEGORIES %>
+  <div class="d-grid mb-2">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
 <% end %>

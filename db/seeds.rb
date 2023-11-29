@@ -9,6 +9,7 @@
 #   end
 
 puts "Cleaning up database..."
+Member.destroy_all
 User.destroy_all
 
 puts "Rodando........."
@@ -22,7 +23,7 @@ group2 = Group.create!(name: "rolê 2", category: "Bar", user: user2, activity: 
 
 at3 = Activity.create!(title: "vintão", category: "restaurante", address: "av paulista")
 user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua 333", email: "master3@master3.com", password: 123123)
-group3 = Group.create!(name: "rolê 3", category: "restaurante", user: user3, activity: at3)
+group3 = Group.create!(name: "rolê 3", category: "Restaurante", user: user3, activity: at3)
 
 at4 = Activity.create!(title: "MC", category: "Morte", address: "rua rua rua")
 user4 = User.create!(first_name: "Anthony", last_name: "Moura", address: "Rua 444", email: "master4@master4.com", password: 123123)
