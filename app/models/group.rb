@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  CATEGORIES = %w[Restaurants Bars Museums Shoppings Pubs Parks Random].sort + ['Random']
+  CATEGORIES = ['All'] + %w[Restaurants Bars Museums Shoppings Pubs Parks].sort + ['Random']
 
   belongs_to :user
   belongs_to :activity, optional: true
