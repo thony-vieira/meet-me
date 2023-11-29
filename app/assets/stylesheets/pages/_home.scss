@@ -41,14 +41,36 @@
 .card {
   border: 2px solid #dbd0d0;
   height: 300px;
-  width: 600px;
-  border-radius: 10px;
+  width: 700px;
   margin: 20px;
-  padding: 12px;
-  box-shadow: 10px 10px 5px rgb(209, 209, 209);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(209, 209, 209);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .container-card {
   display: flex;
-  justify-content:center;
+  justify-content: center;
+}
+.card-info {
+  margin: 0 10% 0 10%;
+  h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 19px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
 }
