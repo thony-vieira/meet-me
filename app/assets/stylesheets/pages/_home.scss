@@ -1,21 +1,54 @@
 // Specific CSS for your home-page
 .banner-home {
   height: 400px;
-  background-image: url("http://res.cloudinary.com/drz9cgt7n/image/upload/v1701204573/jun7zqcxettver7mer1h.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.116),rgba(0, 0, 0, 0.001)), url("http://res.cloudinary.com/drz9cgt7n/image/upload/v1701204573/jun7zqcxettver7mer1h.jpg");
   background-size: cover;
   background-position: 40% 40%;
-  opacity : 0.6;
 }
-.card-1 {
+
+.banner-container h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+}
+.banner-container p {
+  font-size: 20px;
+  color:#fafafa;
+  opacity : 0.9;
+}
+.button-home {
+  background: #340089;
+  border: 0px solid;
+  border-radius: 30px;
+  margin: 50px auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 50px;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color:#dbd0d0;
+  }
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 200px 50px 200px;
+  padding-top: 80px;
+}
+.card {
   border: 2px solid #dbd0d0;
   height: 300px;
   width: 600px;
   border-radius: 10px;
   margin: 20px;
   padding: 12px;
-  box-shadow: 10px 10px 5px rgb(166, 212, 227);
+  box-shadow: 10px 10px 5px rgb(209, 209, 209);
 }
-.container {
+
+.container-card {
   display: flex;
   justify-content:center;
 }
