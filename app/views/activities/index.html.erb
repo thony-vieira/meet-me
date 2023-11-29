@@ -1,15 +1,30 @@
-<div class="cards-activity">
+
+<h1 class="m-2 text-center">What’s nearby</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
   <% @activities.each do |activity| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= activity.image  %>)">
-      <%= activity.title %>
+    <div class="column">
+      <div class="card-activity">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+        <div class="card-activity-infos">
+          <div>
+            <h2><%= activity.title %></h2>
+            <p><%= activity.category %></p>
+          </div>
+        <div>
+        <% 5.times do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %>
+        </div>
+          </div>
+        </div>
     </div>
-
   <% end %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
 </div>
+
+
+
+
+<%# <% @activities.each do |activity| %>
+    <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= activity.image  %>
+      <%# <%= activity.title %>
