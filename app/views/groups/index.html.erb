@@ -1,7 +1,11 @@
 <h1 class="m-2 text-center">Groups</h1>
- <button><%= link_to "Create Group", new_group_path, class: "btn btn-success" %><button>
-      <% @groups.each do |group| %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
-              <h2><%= group.name %></h2>
-              <button> <%= link_to "button", group_path(group) %></button>
-      <% end %>
+ <%# <button><%= link_to "Create Group", new_group_path, class: "btn btn-success" %>
+
+
+<div class="cards">
+  <% @groups.each do |group| %>
+    <%= link_to group_path(group), class: "card-category card-background" do %>
+      <%= group.name %>
+    <% end %>
+  <% end %>
+</div>
