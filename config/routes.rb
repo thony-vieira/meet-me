@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  get "pages", to: "pages#home"
+  root to: "groups#index"
 
   resources :groups do
     resources :members, only: :create
