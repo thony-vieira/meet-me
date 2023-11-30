@@ -7,4 +7,12 @@ class Group < ApplicationRecord
 
   validates :category, presence: true
   validates :name, presence: true, uniqueness: { scope: :user }
+
+  after_create :become_member
+
+  private
+
+  def become_member
+    Member.create(user: self.user, group: self)
+  end
 end
