@@ -2,7 +2,13 @@
 <ul>
   <% @groups.each do |group| %>
     <% if current_user && current_user == group.user %>
-    <li><%= link_to "#{group.name} - #{group.category}", group_path(group) %></li>
+      <li><%= link_to "👑 #{group.name} - #{group.category}", group_path(group) %></li>
+        <%= link_to group_path(group) do %>
+        <% end %>
+
+    <% end %>
+    <% if group.members.map { |member| member.user }.include? current_user %>
+      <li><%= link_to "#{group.name} - #{group.category}", group_path(group) %></li>
     <% end %>
   <% end %>
   <%= link_to "Create Group", new_group_path, class: "btn btn-danger" %>

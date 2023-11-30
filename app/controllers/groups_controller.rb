@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[edit update destroy]
 
   def index
-    @groups = Group.all
+    # @groups = Group.all
+    @groups = Group.includes(:members).all
   end
 
   def show
