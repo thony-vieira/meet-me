@@ -13,7 +13,8 @@ class MembersController < ApplicationController
 
   def destroy
     @member = Member.find(params[:id])
+    group_id = @member.group.id
     @member.destroy
-    redirect_to group_path, status: :see_other
+    redirect_to group_path(group_id), status: :see_other
   end
 end

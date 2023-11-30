@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_191758) do
     t.string "name"
     t.string "category"
     t.bigint "user_id", null: false
-    t.bigint "activity_id", null: false
+    t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_groups_on_activity_id"
