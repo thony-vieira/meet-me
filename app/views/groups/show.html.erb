@@ -11,6 +11,11 @@
         <% @users.each do |user| %>
           <% unless @group.members.map { |member| member.user }.include? user %>
             <li class="list-group-item">
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
+            <% end %>
               <%= user.first_name %>
               <%= link_to group_members_path(@group, user_id: user.id), data: { turbo_method: :post } do %>
               <i class="fa-solid fa-plus" style="color: #0ed100;"></i>

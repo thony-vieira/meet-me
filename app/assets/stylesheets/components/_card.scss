@@ -67,3 +67,14 @@
   box-shadow: 5px 5px 5px #d1d1d1;
   overflow: hidden;
 }
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 40px;
+}
+
+.card-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.116),rgba(0, 0, 0, 0.001)), url("http://res.cloudinary.com/drz9cgt7n/image/upload/v1701204573/jun7zqcxettver7mer1h.jpg");
+  text-decoration: none;
+}

@@ -3,7 +3,8 @@ class GroupsController < ApplicationController
 
   def index
     # @groups = Group.all
-    @groups = Group.includes(:members).all
+    @members = Member.includes(:group).where(user: current_user)
+    # @groups = Group.includes(:members).all
   end
 
   def show
