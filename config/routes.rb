@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "groups#index"
+  root to: "pages#home"
 
   resources :groups do
     resources :members, only: :create
