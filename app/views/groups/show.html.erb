@@ -24,8 +24,8 @@
       <li class="list-group-item">
         <%= member.user.first_name %>
         <% if current_user && current_user == @group.user %>
-          <%= link_to member_path(member), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-          <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
+          <%= link_to member_path(member), data: { turbo_method: :delete } do %>
+            <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
           <% end %>
         <% end %>
       </li>
