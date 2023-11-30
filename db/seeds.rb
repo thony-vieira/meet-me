@@ -9,22 +9,23 @@
 #   end
 
 puts "Cleaning up database..."
+Member.destroy_all
 User.destroy_all
 
 puts "Rodando........."
 at1 = Activity.create!(title: "bar do Bolinha", category: "bar", address: "rua não sei")
-user1 = User.create!(first_name: "Caio", last_name: "Rocha", address: "Rua 111", email: "master1@master1.com", password: 123123)
+user1 = User.create!(first_name: "Caio", last_name: "Rocha", address: "Rua jericó, 193, São Paulo", email: "master1@master1.com", password: 123123)
 group1 = Group.create!(name: "rolê 1", category: "Bar", user: user1, activity: at1)
 
 at2 = Activity.create!(title: "bar do zé", category: "bar", address: "rua talvez alguma")
-user2 = User.create!(first_name: "Pedro", last_name: "Nascimento", address: "Rua 222", email: "master2@master2.com", password: 123123)
+user2 = User.create!(first_name: "Pedro", last_name: "Nascimento", address: "Avenida Paulista 1942, São Paulo", email: "master2@master2.com", password: 123123)
 group2 = Group.create!(name: "rolê 2", category: "Bar", user: user2, activity: at2)
 
 at3 = Activity.create!(title: "vintão", category: "restaurante", address: "av paulista")
-user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua 333", email: "master3@master3.com", password: 123123)
-group3 = Group.create!(name: "rolê 3", category: "restaurante", user: user3, activity: at3)
+user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua Feliciano Malabia, 106, São Paulo", email: "master3@master3.com", password: 123123)
+group3 = Group.create!(name: "rolê 3", category: "Restaurante", user: user3, activity: at3)
 
 at4 = Activity.create!(title: "MC", category: "Morte", address: "rua rua rua")
-user4 = User.create!(first_name: "Anthony", last_name: "Moura", address: "Rua 444", email: "master4@master4.com", password: 123123)
+user4 = User.create!(first_name: "Anthony", last_name: "Moura", address: "Rua Doutor Vicente Giacaglini, 512, São Paulo", email: "master4@master4.com", password: 123123)
 group4 = Group.create!(name: "rolê 4", category: "Morte", user: user4, activity: at4)
 puts "Pronto"
