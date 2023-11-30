@@ -1,9 +1,7 @@
-<h1 class="text-center">Groups</h1>
-<ul>
-  <% @groups.each do |group| %>
-    <% if current_user && current_user == group.user %>
-    <li><%= link_to "#{group.name} - #{group.category}", group_path(group) %></li>
-    <% end %>
-  <% end %>
-  <%= link_to "Create Group", new_group_path, class: "btn btn-danger" %>
-</ul>
+<h1 class="m-2 text-center">Groups</h1>
+ <button><%= link_to "Create Group", new_group_path, class: "btn btn-success" %><button>
+      <% @groups.each do |group| %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+              <h2><%= group.name %></h2>
+              <button> <%= link_to "button", group_path(group) %></button>
+      <% end %>
