@@ -4,8 +4,14 @@
 
 <div class="cards">
   <% @groups.each do |group| %>
-    <%= link_to group_path(group), class: "card-category card-background" do %>
-      <%= group.name %>
+    <% if current_user && current_user == group.user %>
+      <%= link_to group_path(group), class: "card-category card-background" do %>
+        <%= "👑 #{group.name} - #{group.category}" %>
+      <% end %>
+    <% elsif group.members.map { |member| member.user }.include? current_user %>
+      <%= link_to group_path(group), class: "card-category card-background" do %>
+        <%= "#{group.name} - #{group.category}" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
