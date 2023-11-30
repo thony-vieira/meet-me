@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @users = User.where.not(id: current_user)
     @users_in_group = @group.members.map(&:user)
-    @markers = @users_in_group.reject {|user| user.latitude.blank? || user.longitude.blank?}.map do |user|
+    @markers = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude
