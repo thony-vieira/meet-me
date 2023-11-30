@@ -27,10 +27,17 @@
   <div class="card-group-show">
     <% @group.members.each do |member| %>
       <li class="list-group-item">
-        <%= member.user.first_name %>
-        <% if current_user && current_user == @group.user %>
-          <%= link_to member_path(member), data: { turbo_method: :delete } do %>
-            <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
+      <% if member.user.photo.attached? %>
+        <%= cl_image_tag member.user.photo.key, class: "avatar" %>
+      <% else %>
+        <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
+      <% end %>
+      <%= member.user.first_name %>
+        <% if  current_user == @group.user %>
+          <% unless current_user == member.user %>
+            <%= link_to member_path(member), data: { turbo_method: :delete } do %>
+              <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
+            <% end %>
           <% end %>
         <% end %>
       </li>
@@ -39,7 +46,7 @@
   </ul>
   <div>
     <%= link_to "Back", groups_path, class: "btn btn-success" %>
-    <% if current_user && current_user == @group.user %>
+    <% if current_user == @group.user %>
       <%= link_to "Edit", edit_group_path(@group), class: "btn btn-success" %>
       <%= link_to "Delete", group_path(@group), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
