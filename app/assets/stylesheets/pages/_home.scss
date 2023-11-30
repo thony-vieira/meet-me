@@ -39,12 +39,11 @@
   padding-top: 80px;
 }
 .card {
-  border: 2px solid #dbd0d0;
   height: 300px;
   width: 700px;
   margin: 20px;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgb(209, 209, 209);
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.5);
   overflow: hidden;
   display: flex;
   flex-direction: row;
