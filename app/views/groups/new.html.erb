@@ -1,10 +1,12 @@
-<div class="container mt-3">
-  <div class="register-form">
-    <h1 class="text-center mt-3">Create a Group</h1>
-    <h4 class="text-center mt-3 mb-5">Add your folks and get ready to hang out with them!</h4>
+<div class="login-form">
+  <div class="form-group">
+    <h1 class="text-center mt-3">New Group</h1>
+    <h6 class="text-center mt-3 mb-5">Add your folks and get ready to hang out with them!</h6>
       <%= render "form", group: @group %>
     <div class="d-grid mb-2">
-      <%= link_to "Back", groups_path, class: "btn btn-secondary" %>
+      <%= link_to groups_path, class: "text-center" do%>
+      <i class="fa-solid fa-circle-chevron-left fa-beat" style="color: #000000;"></i>
+      <% end %>
     </div>
   </div>
 </div>
