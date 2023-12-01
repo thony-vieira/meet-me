@@ -5,10 +5,10 @@
 
   <div class="cards">
     <% @members.each do |member| %>
-      <%= link_to group_path(member.group), class: "card-category card-background" do %>
+      <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
         <p>
           <%= "👑" if current_user == member.group.user %>
-          <%= "#{member.group.name} - #{member.group.category}" %>
+          <%= member.group.name %>
         </p>
       <% end %>
     <% end %>
