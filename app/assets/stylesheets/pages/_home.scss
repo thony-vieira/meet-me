@@ -17,19 +17,28 @@
   color:#fafafa;
   opacity : 0.9;
 }
-.button-home {
-  background: #340089;
-  border: 0px solid;
-  border-radius: 30px;
-  margin: 50px auto;
-  padding-left: 50px;
-  padding-right: 50px;
-  height: 50px;
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    color:#dbd0d0;
+.btn-home {
+	background-color:#FF8C00;
+	border-radius:28px;
+	border:none;
+	cursor:pointer;
+	font-size:20px;
+	padding:10px 30px 10px 30px;
+  font-weight: bold;
+  margin: 100px auto 0 auto;
+
+  a{
+  color: #ffffff;
+	text-decoration:none;
+
   }
+}
+.btn-home:hover {
+	background-color:#feaa43;
+}
+.bnt-home:active {
+	position:relative;
+	top:1px;
 }
 
 .banner-container {
