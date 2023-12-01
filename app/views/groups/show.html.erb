@@ -1,49 +1,69 @@
 <div class="container">
-  <h1 class="text-center">Group Show</h1>
+  <h1 class="text-center"><%= @group.name %></h1>
 
 
-  <h3><%= @group.name %></h3>
-  <h3><%= @group.category %></h3>
-  <h4 class="text-center">Friends</h4>
+  <h4 </h4>
+  <div class="groups-grid">
+    <div class="friends">
+      <h3 class="text-center"> Friends</h3>
+      <ul>
+        <%# friends %>
+          <% if current_user && current_user == @group.user %>
+            <% @users.each do |user| %>
+              <% unless @group.members.map { |member| member.user }.include? user %>
+                <li class="list-group-item">
+                  <div>
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, class: "avatar" %>
+                    <% else %>
+                      <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
+                    <% end %>
+                    <%= user.first_name %>
+                  </div>
 
-<ul class="list-group end text-right">
-    <% if current_user && current_user == @group.user %>
-        <% @users.each do |user| %>
-          <% unless @group.members.map { |member| member.user }.include? user %>
-            <li class="list-group-item">
-            <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: "avatar" %>
-            <% else %>
-              <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
+                  <%= link_to group_members_path(@group, user_id: user.id), data: { turbo_method: :post } do %>
+                    <i class="fa-solid fa-plus" style="color: #0ed100;"></i>
+                  <% end %>
+                </li>
+              <% end %>
             <% end %>
-              <%= user.first_name %>
-              <%= link_to group_members_path(@group, user_id: user.id), data: { turbo_method: :post } do %>
-              <i class="fa-solid fa-plus" style="color: #0ed100;"></i>
+          <% end %>
+      </ul>
+    </div>
+        <%# Setas %>
+    <div class="arrows">
+      <i class="fa-solid fa-arrow-right fa-lg"></i>
+      <i class="fa-solid fa-arrow-left fa-lg"></i>
+    </div>
+      <%# members grp %>
+      <div class="members">
+        <h3><%= @group.category %></h3>
+        <ul>
+          <% @group.members.each do |member| %>
+            <li class="list-group-item">
+              <div>
+                <% if member.user.photo.attached? %>
+                  <%= cl_image_tag member.user.photo.key, class: "avatar" %>
+                  <% else %>
+                  <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
+                <% end %>
+                <%= member.user.first_name %>
+              </div>
+              <% if  current_user == @group.user %>
+                <% unless current_user == member.user %>
+                  <%= link_to member_path(member), data: { turbo_method: :delete } do %>
+                    <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
+                  <% end %>
+                <% end %>
               <% end %>
             </li>
           <% end %>
-        <% end %>
-    <% end %>
-  <div class="card-group-show">
-    <% @group.members.each do |member| %>
-      <li class="list-group-item">
-      <% if member.user.photo.attached? %>
-        <%= cl_image_tag member.user.photo.key, class: "avatar" %>
-      <% else %>
-        <%= image_tag "notimage.png", class: "avatar", alt: "dropdown menu" %>
-      <% end %>
-      <%= member.user.first_name %>
-        <% if  current_user == @group.user %>
-          <% unless current_user == member.user %>
-            <%= link_to member_path(member), data: { turbo_method: :delete } do %>
-              <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
-            <% end %>
-          <% end %>
-        <% end %>
-      </li>
-    <% end %>
+        </ul>
+      </div>
+
   </div>
-  </ul>
+
+  </div>
   <div>
     <%= link_to "Back", groups_path, class: "btn btn-success" %>
     <% if current_user == @group.user %>
@@ -51,11 +71,10 @@
       <%= link_to "Delete", group_path(@group), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
   </div>
-  <div style="width: 100%; height: 600px;"
+</div>
+
+<div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  <div>
-
-
 </div>
