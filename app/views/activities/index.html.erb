@@ -5,7 +5,7 @@
   <% @activities.each do |activity| %>
     <div class="column">
       <div class="card-activity">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+        <%= cl_image_tag activity.photo.key%>
         <div class="card-activity-infos">
         <%= link_to activity_path(activity) do %>
             <i class="fa-solid fa-map-location-dot fs-1" style="color: #000000;"></i>
