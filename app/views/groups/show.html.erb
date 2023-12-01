@@ -2,7 +2,6 @@
   <h1 class="text-center"><%= @group.name %></h1>
 
 
-  <h4 </h4>
   <div class="groups-grid">
     <div class="friends">
       <h3 class="text-center"> Friends</h3>
@@ -60,10 +59,6 @@
           <% end %>
         </ul>
       </div>
-
-  </div>
-
-  </div>
   <div>
     <%# <%= link_to "Back", groups_path, <i class="fa-regular fa-pen-to-square" style="color: #000000;"></i> %>
     <%= link_to groups_path do %><i class="fa-solid fa-circle-chevron-left fa-xl" style="color: #000000;"></i><% end %>
@@ -72,6 +67,10 @@
       <%= link_to edit_group_path(@group) do %><i class="fa-regular fa-pen-to-square fa-xl" style="color: #000000;"></i><%end%>
       <%= link_to group_path(@group), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %><i class="fa-regular fa-trash-can fa-xl" style="color: #000000;"></i><% end %>
     <% end %>
+
+  </div>
+  </div>
+
   </div>
 </div>
 
