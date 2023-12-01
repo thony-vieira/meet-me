@@ -1,14 +1,16 @@
-<h1 class="m-2 text-center">Groups</h1>
- <%= link_to "Create Group", new_group_path, class: "btn btn-success"%>
+<div class="container">
+  <h1 class="m-2 text-center">Groups</h1>
+  <%= link_to "Create Group", new_group_path, class: "btn button-black"%>
 
 
-<div class="cards">
-  <% @members.each do |member| %>
-    <%= link_to group_path(member.group), class: "card-category card-background" do %>
-      <p>
-        <%= "👑" if current_user == member.group.user %>
-        <%= "#{member.group.name} - #{member.group.category}" %>
-      </p>
+  <div class="cards">
+    <% @members.each do |member| %>
+      <%= link_to group_path(member.group), class: "card-category card-background" do %>
+        <p>
+          <%= "👑" if current_user == member.group.user %>
+          <%= "#{member.group.name} - #{member.group.category}" %>
+        </p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

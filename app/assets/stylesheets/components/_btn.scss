@@ -1,0 +1,30 @@
+.button-black {
+  background-color: #000000;
+  color: whitesmoke;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-black:hover {
+  background-color: #a4a4a4;
+}
+
+
+.button-white {
+  background-color: rgb(255, 255, 255);
+  color: #FF914D;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-white:hover {
+  background-color: #a4a4a4;
+}
