@@ -7,7 +7,7 @@
       <div class="card-activity">
         <%= cl_image_tag activity.photo.key%>
         <div class="card-activity-infos">
-        <%= link_to activity_path(activity) do %>
+        <%= link_to activity_path(activity, group_id: @group.id) do %>
             <i class="fa-solid fa-map-location-dot fs-1" style="color: #000000;"></i>
         <% end %>
           <div>
