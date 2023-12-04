@@ -1,8 +1,9 @@
 class ActivitiesController < ApplicationController
 
   def index
-    group = Group.find(params[:group_id])
-    @activities = Activity.where(category: group.category)
+    @group = Group.find(params[:group_id])
+    @activities = Activity.where(category: @group.category)
+    @message = Message.new
   end
 
 
