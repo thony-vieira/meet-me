@@ -2,7 +2,11 @@
   <div class="banner-container">
     <h1>Halfway</h1>
       <p>Divirta-se com amigos: risos infinitos, momentos inesquecíveis!</p>
-      <%= link_to "Let's start", new_user_registration_path, class: "btn-home"%>
+      <% if user_signed_in? %>
+        <%= link_to "Create Group", new_group_path, class: "btn-home"%>
+      <% else %>
+        <%= link_to "Let's start", new_user_registration_path, class: "btn-home"%>
+      <% end %>
   </div>
 </div>
 

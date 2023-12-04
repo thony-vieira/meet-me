@@ -2,7 +2,9 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[edit update destroy]
 
   def index
-    @members = Member.includes(:group).where(user: current_user)
+    members = Member.includes(:group).where(user: current_user)
+    @my_groups = Group.where(user: current_user)
+    @group_members = members.reject { |member| member.group.user == current_user }
   end
 
   def show

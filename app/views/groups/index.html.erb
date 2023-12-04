@@ -1,16 +1,22 @@
 <div class="container">
   <h1 class="m-2 text-center">Groups</h1>
   <%= link_to "Create Group", new_group_path, class: "btn button-black"%>
-
-
   <div class="cards">
-    <% @members.each do |member| %>
-      <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
-        <p>
-          <%= "👑" if current_user == member.group.user %>
-          <%= member.group.name %>
-        </p>
+    <div class="card-grid">
+      <% @my_groups.each do |group| %>
+            <%= link_to group_path(group), class: "card-category card-background text-center" do %>
+                  <p>👑 <%= group.name %></p>
+            <% end %>
       <% end %>
-    <% end %>
+    </div>
+
+    <div class="card-grid">
+      <% @group_members.each do |member| %>
+            <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
+                <p><%= member.group.name %></p>
+            <% end %>
+      <% end %>
+    </div>
+
   </div>
 </div>
