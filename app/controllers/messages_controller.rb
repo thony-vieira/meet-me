@@ -5,7 +5,11 @@ class MessagesController < ApplicationController
     @message.group = @group
     @message.member = Member.find_by(user: current_user)
     if @message.save
-      redirect_to group_activities_path(@group)
+      ChatroomChannel.broadcast_to(
+      @group,
+      render_to_string(partial: "message", locals: {message: @message})
+    )
+     head :ok
     else
       render "activities/index", status: :unprocessable_entity
     end
