@@ -1,2 +1,112 @@
 // Import page-specific CSS files here.
-@import "home";
+// Specific CSS for your home-page
+// @import "home"
+
+.banner-home {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.116),rgba(0, 0, 0, 0.001)), url("http://res.cloudinary.com/drz9cgt7n/image/upload/v1701204573/jun7zqcxettver7mer1h.jpg");
+  background-size: cover;
+  background-position: 40% 40%;
+}
+.map-faker{
+  height: 600px;
+  background-size: cover;
+  background-position: 40% 40%;
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.banner-container h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+}
+.banner-container p {
+  font-size: 20px;
+  color:#fafafa;
+  opacity : 0.9;
+}
+.btn-home {
+  color: #ffffff;
+	text-decoration:none;
+	background-color:#FF8C00;
+	border-radius:8px;
+	border:none;
+	cursor:pointer;
+	font-size:20px;
+	padding:10px 30px 10px 30px;
+  font-weight: bold;
+  margin: 100px auto 0 auto;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.3);
+
+  a{
+  color: #ffffff;
+	text-decoration:none;
+
+  }
+}
+.btn-home:hover {
+	background-color:#d37400;
+}
+.bnt-home:active {
+	position:relative;
+	top:1px;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 200px 50px 200px;
+  padding-top: 80px;
+}
+.card {
+  height: 300px;
+  width: 700px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+}
+.card-info {
+  margin: 0 10% 0 10%;
+  h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 19px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+
+}
