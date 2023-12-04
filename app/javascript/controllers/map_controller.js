@@ -5,7 +5,8 @@ import mapboxgl from 'mapbox-gl'
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    directions: Array
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -16,6 +17,9 @@ export default class extends Controller {
       })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.on("load", () =>{
+      this.#directionsRoute()
+    })
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -28,5 +32,35 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+  #directionsRoute() {
+    const color = [
+      '#FF5733',
+      '#33FF57',
+      '#5733FF',
+      '#FF33A1',
+      '#33A1FF'
+    ]
+    this.directionsValue.forEach((direction, index) => {
+      this.map.addSource(`directions${index}`, {
+        type: "geojson",
+        data: {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: direction
+          }
+        }
+      })
+      this.map.addLayer({
+        id: `direction${index}`,
+        type: "line",
+        source: `directions${index}`,
+        paint: {
+          "line-width": 4,
+          "line-color": color[index]
+        }
+      })
+    })
   }
 }
