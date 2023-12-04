@@ -26,6 +26,34 @@
 </div>
 
 
+<div class="container chatroom">
+  <h1><%=@group.name%></h1>
+
+  <div class="messages">
+    <% @group.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.member.user.first_name %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= simple_form_for [@group, @message],
+  html: {class: "d-flex"} do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message ##{@group.name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
+
+
 
 
 <%# <% @activities.each do |activity| %>

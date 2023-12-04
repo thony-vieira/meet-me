@@ -1,7 +1,9 @@
 class ActivitiesController < ApplicationController
 
   def index
-    @activities = Activity.all
+    @group = Group.find(params[:group_id])
+    @activities = Activity.where(category: @group.category)
+    @message = Message.new
   end
 
 
