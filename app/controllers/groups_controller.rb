@@ -13,8 +13,25 @@ class GroupsController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude
+        # trocar a cor dos usuarios - Ler a documentação mapbox
       }
     end
+    lat_sum = 0.0
+    lng_sum = 0.0
+
+    @markers.each do |marker|
+      lat_sum += marker[:lat]
+      lng_sum += marker[:lng]
+    end
+    lat_mid = lat_sum / @markers.length
+    lng_mid = lng_sum / @markers.length
+
+    mid_marker = {
+      lat: lat_mid,
+      lng: lng_mid
+      # trocar a cor do meio da rota - Ler a documentação mapbox
+    }
+    @markers.push(mid_marker)
   end
 
   def new
