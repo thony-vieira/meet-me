@@ -7,10 +7,12 @@
   box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
   cursor: pointer;
   font-size: 16px;
+  text-decoration:none;
 }
 
 .button-black:hover {
-  background-color: #a4a4a4;
+  background-color: #ffffff;
+  color: #000000
 }
 
 
@@ -26,5 +28,6 @@
 }
 
 .button-white:hover {
-  background-color: #a4a4a4;
+  background-color: #ffffff;
+  color: #000000
 }
