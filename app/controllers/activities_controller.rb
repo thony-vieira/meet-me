@@ -29,11 +29,12 @@ class ActivitiesController < ApplicationController
       lng: lng_mid
       # trocar a cor do meio da rota - Ler a documentação mapbox
     }
-    @activities = activities.near([mid_marker[:lat], mid_marker[:lng]], 0)
+
+    @activities = activities.near([mid_marker[:lat], mid_marker[:lng]], 0.7)
     @mensage = ''
 
     if @activities.empty?
-      @activities = all_activities.near([mid_marker[:lat], mid_marker[:lng]], 20) # alterar para menos KM
+      @activities = all_activities.near([mid_marker[:lat], mid_marker[:lng]], 1.4) # alterar para menos KM
       @mensage = "Sorry, not found. Here are some nearby suggestions"
     end
     @message = Message.new

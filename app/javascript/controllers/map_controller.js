@@ -6,7 +6,8 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    directions: Array
+    directions: Array,
+    center: Array
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -19,6 +20,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
     this.map.on("load", () =>{
       this.#directionsRoute()
+      this.#drawRadius(this.centerValue[1], this.centerValue[0])
     })
   }
   #addMarkersToMap() {
@@ -31,6 +33,42 @@ export default class extends Controller {
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map)
     })
+  }
+
+
+  #getCircleRadius(zoom, radiusInKilometers, center) {
+    const metersPerPixel = 40075016.686 * Math.abs(Math.cos(center[1] * Math.PI / 180)) / Math.pow(2, zoom + 8);
+    return radiusInKilometers * 1000 / metersPerPixel;
+  };
+
+  #drawRadius(longitude, latitude) {
+    const center = [longitude, latitude];
+    const radius = 0.7; 
+
+    this.map.addSource("circle", {
+        "type": "geojson",
+        "data": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": center
+            }
+        }
+    });
+
+    this.map.addLayer({
+        "id": "circle",
+        "source": "circle",
+        "type": "circle",
+        "paint": {
+            "circle-radius": {
+                'base': 2,
+                'stops': [[0, 0], [22, this.#getCircleRadius(22, radius, center)]]
+            },
+            "circle-color": "#007cbf",
+            "circle-opacity": 0.5
+        }
+    });
   }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
