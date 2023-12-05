@@ -4,6 +4,8 @@ class ActivitiesController < ApplicationController
     @group = Group.find(params[:group_id])
 
     activities = Activity.where(category: @group.category)
+    all_activities = Activity.all
+
     @users_in_group = @group.members.map(&:user)
     @markers = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|
       {
@@ -27,7 +29,13 @@ class ActivitiesController < ApplicationController
       lng: lng_mid
       # trocar a cor do meio da rota - Ler a documentação mapbox
     }
-    @activities = activities.near([mid_marker[:lat], mid_marker[:lng]], 0.2)
+    @activities = activities.near([mid_marker[:lat], mid_marker[:lng]], 0)
+    @mensage = ''
+
+    if @activities.empty?
+      @activities = all_activities.near([mid_marker[:lat], mid_marker[:lng]], 20) # alterar para menos KM
+      @mensage = "Sorry, not found. Here are some nearby suggestions"
+    end
     @message = Message.new
   end
 
