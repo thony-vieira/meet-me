@@ -1,23 +1,47 @@
 <div class="banner-home">
   <div class="banner-container">
     <h1>Halfway</h1>
-      <p>Divirta-se com amigos: risos infinitos, momentos inesquecíveis!</p>
-      <% if user_signed_in? %>
-        <%= link_to "Create Group", new_group_path, class: "btn-home"%>
-      <% else %>
-        <%= link_to "Let's start", new_user_registration_path, class: "btn-home"%>
-      <% end %>
+      <p>Bridging Distances, Building Memories!</p>
+        <% if user_signed_in? %>
+          <%= link_to "Create Group", new_group_path, class: "btn-home"%>
+        <% else %>
+          <%= link_to "Let's start", new_user_registration_path, class: "btn-home"%>
+        <% end %>
   </div>
 </div>
 
-<div class="container-card">
 
-  <div class="card">
-      <img src="https://www.casamagalhaes.com.br/blog/wp-content/uploads/2017/01/guia-completo-para-abrir-um-bar.jpg">
-  <div class="card-info">
-      <h3>Reunia-se com os amigos</h3>
-      <p> Cada encontro é uma pausa no caos diário, uma terapia de felicidade compartilhada. É nesses momentos que descobrimos que, mais do que amigos, somos uma extensão da nossa própria alegria. </p>
+<div class="container">
+  <div class="cards-home-grid">
+    <div class="cards-home">
+      <%= image_tag "group_hangout.svg" %>
+      <div class="card-home">
+        <h6>Inviting friends made easy</h6>
+        <p>With Halfway, send out invitations effortlessly and let the excitement begin</p>
+      </div>
+    </div>
+    <div class="cards-home">
+      <%= image_tag "location.svg" %>
+      <div class="card-home">
+        <h6>Let Halfway do the math</h6>
+        <p>Our smart location detection finds the perfect midpoint between you and your friends – making every meet-up a breeze</p>
+      </div>
+    </div>
+    <div class="cards-home">
+      <%= image_tag "bestplace2.svg" %>
+      <div class="card-home">
+        <h6>Elevate your experience</h6>
+        <p>Explore curated options situated at the exact halfway point, ensuring convenience and delight for all.</p>
+      </div>
+    </div>
+    <div class="cards-home">
+      <%= image_tag "real_life.svg" %>
+      <div class="card-home">
+        <h6>Dive into seamless coordination</h6>
+        <p>Halfway streamlines the planning process, leaving you more time to create lasting memories. Join us now!</p>
+      </div>
+    </div>
   </div>
-  </div>
-
 </div>
+
+

@@ -49,15 +49,17 @@ class ActivitiesController < ApplicationController
    @markers = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|
     {
       lat: user.latitude,
-      lng: user.longitude
+      lng: user.longitude,
       # trocar a cor dos usuarios - Ler a documentação mapbox
+      marker_html: render_to_string(partial: "groups/marker", locals: {user:, target: false})
     }
   end
 
   mid_marker = {
     lat: @activity.latitude,
-    lng: @activity.longitude
+    lng: @activity.longitude,
     # trocar a cor do meio da rota - Ler a documentação mapbox
+    marker_html: render_to_string(partial: "groups/marker", locals: {user: User.first, target: true })
   }
   @markers.push(mid_marker)
   @directions = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|

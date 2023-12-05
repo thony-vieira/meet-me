@@ -79,3 +79,29 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.116),rgba(0, 0, 0, 0.001)), url("http://res.cloudinary.com/drz9cgt7n/image/upload/v1701204573/jun7zqcxettver7mer1h.jpg");
   text-decoration: none;
 }
+
+.cards-home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.cards-home{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 10px 9px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.card-home {
+  flex-grow: 3;
+}
+
+.cards-home img {
+  width: 200px;
+  // height: 100%;
+}
