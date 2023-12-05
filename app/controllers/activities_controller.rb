@@ -41,6 +41,7 @@ class ActivitiesController < ApplicationController
   end
 
  def show
+   @message = Message.new
    @activity = Activity.find(params[:id])
 
    @group = Group.find(params[:group_id])
