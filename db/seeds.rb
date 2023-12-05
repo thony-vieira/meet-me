@@ -32,7 +32,7 @@ at2.save
 user2 = User.create!(first_name: "Pedro", last_name: "Nascimento", address: "Avenida Paulista 1942, São Paulo", email: "master2@master2.com", password: 123123)
 group2 = Group.create!(name: "rolê 2", category: "Bars", user: user2, activity: at2)
 
-at3 = Activity.new(title: "vintão", category: "Restaurants", address: "Rua brigadeiro tobias, 669, São Paulo")
+at3 = Activity.new(title: "vintão", category: "Restaurants", address: "Avenida São João, 677, São Paulo")
 file = URI.open("https://source.unsplash.com/random")
 at3.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
 at3.save
