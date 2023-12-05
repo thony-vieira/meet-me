@@ -1,6 +1,10 @@
 <div class="container">
   <h1 class="m-2 text-center">Groups</h1>
+
+
+
   <%= link_to "Create Group", new_group_path, class: "btn button-black"%>
+
   <div class="cards">
     <div class="card-grid">
       <% @my_groups.each do |group| %>
