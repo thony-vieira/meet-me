@@ -14,8 +14,8 @@ class GroupsController < ApplicationController
     @markers = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
-        # trocar a cor dos usuarios - Ler a documentação mapbox
+        lng: user.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {user:, target: false})
       }
     end
     lat_sum = 0.0
@@ -30,9 +30,10 @@ class GroupsController < ApplicationController
 
     mid_marker = {
       lat: lat_mid,
-      lng: lng_mid
-      # trocar a cor do meio da rota - Ler a documentação mapbox
+      lng: lng_mid,
+      marker_html: render_to_string(partial: "marker", locals: {user: User.first, target: true })
     }
+    @center = [mid_marker[:lat], mid_marker[:lng]]
     @markers.push(mid_marker)
     @directions = @users_in_group.reject { |user| user.latitude.blank? || user.longitude.blank? }.map do |user|
       get_direction(user.longitude, user.latitude, lng_mid, lat_mid)

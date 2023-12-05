@@ -6,15 +6,11 @@
 }
 
 .login-form{
-  width:35vw;
+  width:40vw;
   padding:40px 30px;
   background:#eee;
   @include border-radius(4px);
-  margin:auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top:35%;
+  margin: 32px auto;
   box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.2);
 }
 

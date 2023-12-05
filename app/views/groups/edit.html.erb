@@ -3,5 +3,10 @@
     <h1 class="text-center mt-3">Edit Group</h1>
     <h6 class="text-center mt-3 mb-5">Update your preferences below</h6>
       <%= render "form", group: @group %>
+      <div class="d-grid mb-2">
+      <%= link_to group_path, class: "text-center" do%>
+      <i class="fa-solid fa-circle-chevron-left fa-beat" style="color: #000000;"></i>
+      <% end %>
+    </div>
   </div>
 </div>

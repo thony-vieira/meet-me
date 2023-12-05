@@ -1,0 +1,7 @@
+<% if user.photo.attached? %>
+  <%= cl_image_tag user.photo.key, class: "avatar"%>
+<% elsif target %>
+  <%= image_tag "target.png", height: 30, width: 30 %>
+<% else %>
+  <%= image_tag "notimage.png", class: "avatar"%>
+<% end %>
