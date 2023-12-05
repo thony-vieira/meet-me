@@ -1,53 +1,55 @@
-
+<h1 class="text-center m-4" >Whats's nearby</h1>
 <div class="container">
-  <h1 class="text-center">What’s nearby</h1>
-  <% unless @mensage.empty? %>
-    <p class="text-center"><%= @mensage %></p>
-  <% end %>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-  <% @activities.each do |activity| %>
-    <div class="column">
-      <div class="card-activity">
-        <%= cl_image_tag activity.photo.key%>
-        <div class="card-activity-infos">
-        <%= link_to activity_path(activity, group_id: @group.id) do %>
-            <i class="fa-solid fa-map-location-dot fs-1" style="color: #000000;"></i>
-        <% end %>
-          <div>
-            <h2><%= activity.title %></h2>
-            <p><%= activity.category %></p>
+  <div class="row">
+    <%# cards %>
+    <div class="col-4">
+      <% @activities.each do |activity| %>
+        <div class="column">
+          <div class="card-activity">
+            <%= cl_image_tag activity.photo.key%>
+            <div class="card-activity-infos">
+              <%= link_to activity_path(activity, group_id: @group.id) do %>
+                  <i class="fa-solid fa-map-location-dot fs-1" style="color: #000000;"></i>
+              <% end %>
+              <div>
+                <h2><%= activity.title %></h2>
+                <p><%= activity.category %></p>
+              </div>
+              <div>
+                <% 5.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
-        <div>
-          <% 5.times do %>
-            <i class="fa-solid fa-star"></i>
+        </div>
+      <% end %>
+    </div>
+
+    <%# chat  %>
+    <div class="col-8">
+      <div class="container chatroom sticky-top"
+        data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @group.id %>"
+        data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+        <h1><%=@group.name%></h1>
+
+        <div class="messages" data-chatroom-subscription-target="messages">
+          <% @group.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
           <% end %>
         </div>
-          </div>
-        </div>
+
+        <%= simple_form_for [@group, @message],
+          html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" },  class: "d-flex"} do |f| %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Message ##{@group.name}",
+            wrapper_html: {class: "flex-grow-1 ", id: "chat-textarea"}
+          %>
+          <%= f.submit "Send", class: "btn-chat" %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>
-
-
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @group.id %>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-  <h1><%=@group.name%></h1>
-
- <div class="messages" data-chatroom-subscription-target="messages">
-  <% @group.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
-
-<%= simple_form_for [@group, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" },  class: "d-flex"} do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@group.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
