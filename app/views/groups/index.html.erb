@@ -1,26 +1,30 @@
+<div class="banner-groups">
+  <div class="banner-container-groups">
+    <h1 class="m-2 text-center">Groups</h1>
+  </div>
+</div>
 <div class="container">
-  <h1 class="m-2 text-center">Groups</h1>
-
-
-
-  <%= link_to "Create Group", new_group_path, class: "btn button-black"%>
-
-  <div class="cards">
-    <div class="card-grid">
+<div class ="d-flex justify-content-center align-items-center">
+  <%= link_to "Create Group +", new_group_path, class: "btn button-black text-center my-5 w-50"%>
+  </div>
+  <div class="row">
+    <div class="col-4">
+    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-crown"></i> Groups adm</h2>
       <% @my_groups.each do |group| %>
-            <%= link_to group_path(group), class: "card-category card-background text-center" do %>
-                  <p>👑 <%= group.name %></p>
-            <% end %>
+        <%= link_to group_path(group), class: "card-category card-background text-center my-4" do %>
+          <p><%= group.name %></p>
+        <% end %>
       <% end %>
     </div>
-
-    <div class="card-grid">
-      <% @group_members.each do |member| %>
-            <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
-                <p><%= member.group.name %></p>
-            <% end %>
-      <% end %>
+    <div class="col-8">
+    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-users"></i> Member</h2>
+      <div class="cards-members mt-4">
+        <% @group_members.each do |member| %>
+          <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
+            <p><%= member.group.name %></p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>

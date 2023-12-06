@@ -10,12 +10,20 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.4);}
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.4);
+  transition: .4s
+}
 
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+.card-category:hover {
+  scale: 1.04;
+  transition: .3s;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 40px;
 }
 
 .card-activity {
@@ -100,6 +108,12 @@
 .cards-home img {
   width: 200px;
   // height: 100%;
+}
+
+.cards-members {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
 .about-us-cards{
