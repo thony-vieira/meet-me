@@ -31,11 +31,11 @@ class ActivitiesController < ApplicationController
     }
 
     @activities = activities.near([mid_marker[:lat], mid_marker[:lng]], 0.7)
-    @mensage = ''
+    @activity_not_found = ''
 
     if @activities.empty?
       @activities = all_activities.near([mid_marker[:lat], mid_marker[:lng]], 1.4) # alterar para menos KM
-      @mensage = "Sorry, not found. Here are some nearby suggestions"
+      @activity_not_found = "Sorry, category not found. Here are some nearby suggestions"
     end
     @message = Message.new
   end
