@@ -1,6 +1,6 @@
 .button-black {
   background-color: #000000;
-  color: whitesmoke;
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
@@ -14,7 +14,6 @@
   background-color: #ffffff;
   color: #000000;
 }
-
 
 .button-white {
   background-color: rgb(255, 255, 255);
@@ -148,3 +147,86 @@
     color: #fff;
   }
 }
+
+
+
+
+// Botao do Let's Roll \/
+.button-roll {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+.button-roll{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-roll:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: center;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-roll:hover{
+  padding-right: 32px;
+  padding-left:28px;
+}
+
+.button-roll:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+// Botao do Let's Roll /\
+
+// Botao do Create Group \/
+.button-create-group {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 70px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration:none;
+}
+
+.button-create-group{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-create-group:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: center;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-create-group:hover{
+  padding-right: 38px;
+  padding-left:32px;
+}
+
+.button-create-group:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+// Botao do Create Group /\
