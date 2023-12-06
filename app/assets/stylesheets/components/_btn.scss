@@ -111,3 +111,10 @@
   transform: translate(2px ,2px);
 }
 // Botao do chat /\
+
+.icons-color a i{
+  color: #000;
+  &:hover {
+    color: #fff;
+  }
+}
