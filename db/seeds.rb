@@ -17,6 +17,7 @@ Activity.destroy_all
 Group.destroy_all
 
 puts "Rodando........."
+
 at1 = Activity.new(title: "bar do Bolinha", category: "Bars", address: "Rua jericó, 193, São Paulo")
 file = URI.open("https://source.unsplash.com/random")
 # aqui em cima irá o código da API linha 21 e respectivas
@@ -36,7 +37,7 @@ at3 = Activity.new(title: "vintão", category: "Restaurants", address: "Avenida 
 file = URI.open("https://source.unsplash.com/random")
 at3.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
 at3.save
-user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua Feliciano Malabia, 106, São Paulo", email: "master3@master3.com", password: 123123)
+user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua Patizal, 50, São Paulo", email: "master3@master3.com", password: 123123)
 group3 = Group.create!(name: "rolê 3", category: "Restaurants", user: user3, activity: at3)
 
 at4 = Activity.new(title: "MC", category: "Bars", address: "Rua Cunha Horta, 70 - Consolação, São Paulo")
@@ -45,9 +46,35 @@ at4.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png
 at4.save
 user4 = User.create!(first_name: "Anthony", last_name: "Moura", address: "Rua Doutor Vicente Giacaglini, 512, São Paulo", email: "master4@master4.com", password: 123123)
 group4 = Group.create!(name: "rolê 4", category: "Bars", user: user4, activity: at4)
+
+@client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
+
+lat = -23.54609935
+lng = -46.66126645
+
+bars = @client.spots(lat, lng, types: 'bar')
+restaurants = @client.spots(lat, lng, types: 'restaurant')
+
+bars.first(10).each do |bar|
+  Activity.create!(
+    title: bar.name,
+    category: "Bar",
+    address: bar.vicinity,
+    latitude: bar.lat,
+    longitude: bar.lng,
+    rating: bar.rating
+  )
+end
+
+restaurants.first(10).each do |restaurant|
+  Activity.create!(
+    title: restaurant.name,
+    category: "Restaurant",
+    address: restaurant.vicinity,
+    latitude: restaurant.lat,
+    longitude: restaurant.lng,
+    rating: restaurant.rating
+  )
+end
 puts "Pronto"
-
-
-
-
 # file = URI.open("https://source.unsplash.com/random")

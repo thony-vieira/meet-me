@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  CATEGORIES = %w[Restaurants Bars Museums Shoppings Pubs Parks].sort
+  CATEGORIES = %w[Restaurant Bar Museum Shopping_mall Park Cafe].sort
 
   belongs_to :user
   belongs_to :activity, optional: true

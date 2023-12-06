@@ -30,6 +30,8 @@
   display: grid;
   grid-gap: 16px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
   background: white;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -61,6 +63,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  text-overflow: ellipsis;
 }
 
 .card-activity-infos .card-activity-user {
