@@ -97,11 +97,22 @@
   border-radius: 8px;
 }
 
-.card-home {
-  flex-grow: 3;
+.cards-home img {
+  width: 200px;
+  // height: 100%;
 }
 
-.cards-home img {
+.about-us-cards{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 10px 9px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.about-us-cards img {
   width: 200px;
   // height: 100%;
 }

@@ -44,6 +44,33 @@
   text-decoration:none;
 }
 
+.btn-home {
+  color: #ffffff;
+	text-decoration:none;
+	background-color:#FF8C00;
+	border-radius:8px;
+	border:none;
+	cursor:pointer;
+	font-size:20px;
+	padding:10px 30px 10px 30px;
+  font-weight: bold;
+  margin: 32px auto 0 auto;
+  box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.3);
+  display: inline-block;
+
+  a{
+  color: #ffffff;
+	text-decoration:none;
+
+  }
+}
+.btn-home:hover {
+	background-color:#d37400;
+}
+.bnt-home:active {
+	position:relative;
+	top:1px;
+}
 
 
 // Botao do chat \/
