@@ -1,47 +1,63 @@
 <div class="banner-home">
-  <div class="banner-container">
-    <h1>Halfway</h1>
-      <p>Bridging Distances, Building Memories!</p>
-        <% if user_signed_in? %>
-          <%= link_to "Create Group", new_group_path, class: "btn-home"%>
-        <% else %>
-          <%= link_to "Let's start", new_user_registration_path, class: "btn-home"%>
-        <% end %>
+  <div class="banner-container text-center">
+    <div>
+      <%= image_tag "black_logo.png", style: "width: 300px; height: auto;" %>
+          <h1 class="text-white text-center">Connecting Hearts, One Hangout at a Time</h1>
+    </div>
+    <div class="home-button">
+      <% if user_signed_in? %>
+        <%= link_to "Hangout With My Friends", new_group_path, class: "btn-home"%>
+      <% else %>
+        <%= link_to "Let's Start", new_user_registration_path, class: "btn-home"%>
+      <% end %>
+    </div>
   </div>
 </div>
 
 
 <div class="container">
+  <div class="welcome mt-5">
+    <%# <h1 class="text-white text-center">Connecting Hearts, One Hangout at a Time</h1> %>
+    <h4 class="text-white text-center">Welcome to Halfway, where friendship meets adventure, and memories are made! 🚀</h4>
+  </div>
   <div class="cards-home-grid">
     <div class="cards-home">
       <%= image_tag "group_hangout.svg" %>
       <div class="card-home">
         <h6>Inviting friends made easy</h6>
-        <p>With Halfway, send out invitations effortlessly and let the excitement begin</p>
+        <p class="text-secondary">With Halfway, send out invitations effortlessly and let the excitement begin</p>
       </div>
     </div>
     <div class="cards-home">
       <%= image_tag "location.svg" %>
       <div class="card-home">
         <h6>Let Halfway do the math</h6>
-        <p>Our smart location detection finds the perfect midpoint between you and your friends – making every meet-up a breeze</p>
+        <p class="text-secondary">Our smart location detection finds the perfect midpoint between you and your friends – making every meet-up a breeze</p>
       </div>
     </div>
     <div class="cards-home">
       <%= image_tag "bestplace2.svg" %>
       <div class="card-home">
         <h6>Elevate your experience</h6>
-        <p>Explore curated options situated at the exact halfway point, ensuring convenience and delight for all.</p>
+        <p class="text-secondary">Explore curated options situated at the exact halfway point, ensuring convenience and delight for all.</p>
       </div>
     </div>
     <div class="cards-home">
       <%= image_tag "real_life.svg" %>
       <div class="card-home">
         <h6>Dive into seamless coordination</h6>
-        <p>Halfway streamlines the planning process, leaving you more time to create lasting memories. Join us now!</p>
+        <p class="text-secondary">Halfway streamlines the planning process, leaving you more time to create lasting memories. Join us now!</p>
       </div>
     </div>
   </div>
 </div>
 
-
+<div class="container mt-5 text-center">
+  <div class="about-us-cards">
+    <%= image_tag "connections.svg" %>
+    <div class="lh-base ">
+      <h4 class="about">About Us</h4>
+      <p class="text-secondary">At Halfway, we believe in the power of meaningful connections and the joy that comes from spending quality time with friends. Our journey began with a simple desire – to make planning hangouts effortless, exciting, and inclusive for everyone. We're on a mission to bring people together, breaking down the barriers of distance and indecision. Halfway is more than just an app; it's a facilitator of shared experiences, laughter, and the kind of bonding that lasts a lifetime.</p>
+    </div>
+  </div>
+</div>
