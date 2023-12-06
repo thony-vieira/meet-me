@@ -6,13 +6,13 @@
   border-radius: 8px;
   box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.2);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration:none;
 }
 
 .button-black:hover {
   background-color: #ffffff;
-  color: #000000
+  color: #000000;
 }
 
 
@@ -47,25 +47,28 @@
 .btn-home {
   color: #ffffff;
 	text-decoration:none;
-	background-color:#FF8C00;
+	background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  background-size: 200% auto;
 	border-radius:8px;
 	border:none;
 	cursor:pointer;
 	font-size:20px;
-	padding:10px 30px 10px 30px;
+	padding: 12px 40px;
   font-weight: bold;
   margin: 32px auto 0 auto;
   box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.3);
   display: inline-block;
+  transition: 0.5s;
 
   a{
   color: #ffffff;
 	text-decoration:none;
-
   }
 }
 .btn-home:hover {
-	background-color:#d37400;
+	background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 .bnt-home:active {
 	position:relative;

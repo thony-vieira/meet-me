@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-4">
-    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-crown"></i> Groups adm</h2>
+    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-crown"></i> My Groups</h2>
       <% @my_groups.each do |group| %>
         <%= link_to group_path(group), class: "card-category card-background text-center my-4" do %>
           <p><%= group.name %></p>
