@@ -5,7 +5,7 @@
 </div>
 <div class="container">
   <div class ="d-flex justify-content-center align-items-center">
-    <%= link_to "Create Group", new_group_path, class: "button-create-group my-5"%>
+    <%= link_to "Create new group", new_group_path, class: "button-create-group my-5"%>
   </div>
   <div class="row">
     <div class="col-4">
@@ -17,7 +17,7 @@
       <% end %>
     </div>
     <div class="col-8">
-    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-users"></i> Member</h2>
+    <h2 class="text-center text-white border-bottom border-2 pb-3"> <i class="fa-solid fa-users"></i> My Friends Groups</h2>
       <div class="cards-members mt-4">
         <% @group_members.each do |member| %>
           <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
