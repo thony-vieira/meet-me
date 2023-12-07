@@ -7,7 +7,7 @@
 </div>
 <div class="container">
   <div class=" container d-flex justify-content-end">
-    <a class="btn-chat" href="<%="https://www.google.com/maps/place/#{@activity.address}" %>">See on Google Maps</a>
+    <a class="button-black" href="<%="https://www.google.com/maps/place/#{@activity.address}" %>">See on Google Maps</a>
   </div>
   <div class="row">
     <div class="col-4">
@@ -15,7 +15,10 @@
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= @group.id %>"
           data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-          <h1><%=@group.name%></h1>
+          <div class="d-flex justify-content-between border-bottom">
+            <h1><%=@group.name%></h1>
+            <h1><%= @group.category %></h1>
+          </div>
 
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @group.messages.each do |message| %>
