@@ -7,17 +7,17 @@
 </div>
 <div class="container">
   <div class=" container d-flex justify-content-end">
-    <a target="_blank" class="button-black" href="<%="https://www.google.com.br/maps/dir/#{current_user.address}/#{@activity.address}" %>">See on Google Maps</a>
+    <a target="_blank" class="button-black mb-2" href="<%="https://www.google.com.br/maps/dir/#{current_user.address}/#{@activity.address}" %>">See on Google Maps</a>
   </div>
   <div class="row">
     <div class="col-4">
-        <div class="container chatroom sticky-top mt-2"
+        <div class="container chatroom sticky-top mt-2 shadow"
           data-controller="chatroom-subscription"
           data-chatroom-subscription-chatroom-id-value="<%= @group.id %>"
           data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
           <div class="d-flex justify-content-between border-bottom">
-            <h1><%=@group.name%></h1>
-            <h1><%= @group.category %></h1>
+            <h4 class="pt-3"><%=@group.name%></h4>
+            <h4 class="pt-3"><%= @group.category %></h4>
           </div>
 
           <div class="messages" data-chatroom-subscription-target="messages">

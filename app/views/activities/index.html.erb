@@ -34,13 +34,13 @@
 
     <%# chat  %>
     <div class="col-8">
-      <div class="container chatroom sticky-top"
+      <div class="container chatroom sticky-top shadow"
         data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @group.id %>"
         data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
         <div class="d-flex justify-content-between border-bottom">
-          <h1><%=@group.name%></h1>
-          <h1><%= @group.category %></h1>
+          <h4 class="pt-3"><%=@group.name%></h4>
+          <h4 class="pt-3"><%= @group.category %></h4>
         </div>
         <div class="messages" data-chatroom-subscription-target="messages">
           <% @group.messages.each do |message| %>
