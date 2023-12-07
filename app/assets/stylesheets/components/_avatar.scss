@@ -18,3 +18,18 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.about-us-avatars {
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-avatars .avatar-img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin: 0 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.9);
+  border: white 1px solid;
+  object-fit: cover;
+}

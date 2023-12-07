@@ -1,5 +1,8 @@
-<h1 class="text-center m-4" >Whats's nearby</h1>
 <div class="container">
+  <div class="d-flex w-100 my-4 border-bottom border-2 icons-color">
+    <%= link_to group_path(@group), class:"text-dark mb-3 fs-4" do %><i class="fa-solid fa-circle-chevron-left fa-xl"> </i><% end %>
+    <h2 class="w-100 text-center text-white pb-3 shadow-title" ><i class="fa-solid fa-magnifying-glass-location"></i>What's nearby</h2>
+  </div>
   <p><%= @activity_not_found %></p>
   <div class="row">
     <%# cards %>
