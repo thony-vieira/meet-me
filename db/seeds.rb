@@ -14,17 +14,17 @@ puts "Cleaning up database..."
 Member.destroy_all
 User.destroy_all
 Activity.destroy_all
-Group.destroy_all
+# Group.destroy_all
 
 puts "Rodando........."
 
-at1 = Activity.new(title: "bar do Bolinha", category: "Bar", address: "Rua jericó, 193, São Paulo")
-file = URI.open("https://source.unsplash.com/random")
-# aqui em cima irá o código da API linha 21 e respectivas
-at1.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
-at1.save
+# at1 = Activity.new(title: "bar do Bolinha", category: "Bar", address: "Rua jericó, 193, São Paulo")
+# file = URI.open("https://source.unsplash.com/random")
+# # aqui em cima irá o código da API linha 21 e respectivas
+# at1.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
+# at1.save
 user1 = User.create!(first_name: "Caio", last_name: "Rocha", address: "Rua brigadeiro tobias, 669, São Paulo", email: "master1@master1.com", password: 123123)
-group1 = Group.create!(name: "rolê 1", category: "Bar", user: user1, activity: at1)
+# group1 = Group.create!(name: "rolê 1", category: "Bar", user: user1, activity: at1)
 
 # at2 = Activity.new(title: "bar do zé", category: "Bar", address: "Rua Maria Borba, 40 - Higienópolis, São Paulo")
 # file = URI.open("https://source.unsplash.com/random")
@@ -33,12 +33,12 @@ group1 = Group.create!(name: "rolê 1", category: "Bar", user: user1, activity: 
 user2 = User.create!(first_name: "Pedro", last_name: "Nascimento", address: "Avenida Paulista 1942, São Paulo", email: "master2@master2.com", password: 123123)
 # group2 = Group.create!(name: "rolê 2", category: "Bar", user: user2, activity: at2)
 
-at3 = Activity.new(title: "vintão", category: "Restaurant", address: "Avenida São João, 677, São Paulo")
-file = URI.open("https://source.unsplash.com/random")
-at3.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
-at3.save
+# at3 = Activity.new(title: "vintão", category: "Restaurant", address: "Avenida São João, 677, São Paulo")
+# file = URI.open("https://source.unsplash.com/random")
+# at3.photo.attach(io: file, filename: "placeholder.png", content_type: "image/png")
+# at3.save
 user3 = User.create!(first_name: "Debora", last_name: "Lee", address: "Rua do Paraíso, 515, São Paulo", email: "master3@master3.com", password: 123123)
-group3 = Group.create!(name: "rolê 3", category: "Restaurant", user: user3, activity: at3)
+# group3 = Group.create!(name: "rolê 3", category: "Restaurant", user: user3, activity: at3)
 
 # at4 = Activity.new(title: "MC", category: "Bar", address: "Rua Cunha Horta, 70 - Consolação, São Paulo")
 # file = URI.open("https://source.unsplash.com/random")
