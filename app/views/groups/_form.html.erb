@@ -1,6 +1,7 @@
 <%= simple_form_for [group] do |f| %>
   <%= f.input :name %>
   <%= f.input :category, collection: Group::CATEGORIES %>
+  <%= f.input :photo, as: :file %>
   <div class="d-grid mb-2">
     <%= f.submit class: "log-btn" %>
   </div>
