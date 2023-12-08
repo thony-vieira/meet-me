@@ -1,6 +1,4 @@
 .card-category {
-  background-size: cover;
-  background-position: center;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -8,10 +6,22 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   box-shadow: 5px 5px 5px rgba(135, 66, 1, 0.4);
-  transition: .4s
+  transition: .4s;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+
+.group-card {
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  position: absolute;
+  text-align: center;
 }
 
 .cards-grid {

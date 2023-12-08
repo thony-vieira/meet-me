@@ -14,7 +14,7 @@ puts "Cleaning up database..."
 Member.destroy_all
 User.destroy_all
 Activity.destroy_all
-Group.destroy_all
+# Group.destroy_all
 
 puts "Rodando........."
 
