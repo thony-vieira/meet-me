@@ -13,6 +13,10 @@
           <div class="card-activity">
             <% if activity.photo.key %>
               <%= cl_image_tag activity.photo.key%>
+              <% else %>
+                <% if activity.image.present? %>
+                  <%= image_tag activity.image, alt: "Descrição da imagem" %>
+                <% end %>
             <% end %>
             <div class="card-activity-infos">
                 <%# <i class="fa-solid fa-map-location-dot fs-1" style="color: #000000;"></i> %>
