@@ -11,19 +11,26 @@
     <div class="col-4 pe-5">
     <h2 class="text-center text-white border-bottom border-2 pb-3 shadow-title"> <i class="fa-solid fa-crown"></i> My Groups</h2>
       <% @my_groups.each do |group| %>
-        <%= link_to group_path(group), class: "card-category card-background text-center my-4" do %>
-          <p><%= group.name %></p>
+        <%= link_to group_path(group), class: "card-category text-center my-4 group-card", style: group.photo.attached? ? "background-image: url('#{cl_image_path(group.photo.key, width: 300, height: 200, crop: :fill)}')" : "" do %>
+          <div class="card-content">
+            <p><%= group.name %></p>
+          </div>
         <% end %>
       <% end %>
     </div>
     <div class="col-8 ps-5">
     <h2 class="text-center text-white border-bottom border-2 pb-3 shadow-title"> <i class="fa-solid fa-users"></i> My Friends Groups</h2>
       <div class="cards-members mt-4">
+
         <% @group_members.each do |member| %>
-          <%= link_to group_path(member.group), class: "card-category card-background text-center" do %>
-            <p><%= member.group.name %></p>
+          <%= link_to group_path(member.group), class: "card-category text-center group-card", style: member.group.photo.attached? ? "background-image: url('#{cl_image_path(member.group.photo.key, width: 300, height: 200, crop: :fill)}')" : "" do %>
+            <div class="card-content">
+              <p><%= member.group.name %></p>
+            </div>
           <% end %>
         <% end %>
+
+        
       </div>
     </div>
   </div>
